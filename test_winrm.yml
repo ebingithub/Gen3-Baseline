@@ -1,18 +1,7 @@
 ---
 - name: Test Windows WinRM connectivity
-hosts: windows
-gather_facts: no
-tasks:
+ hosts: windows
+ gather_facts: no
+ tasks:
    - name: Test WinRM ping
      ansible.windows.win_ping:
-   - name: Get hostname
-     ansible.windows.win_shell: hostname
-     register: hostname_out
-   - name: Get current user
-     ansible.windows.win_shell: whoami
-     register: whoami_out
-   - name: Show connection details
-     ansible.builtin.debug:
-       msg:
-         - "Hostname: {{ hostname_out.stdout }}"
-         - "Connected as: {{ whoami_out.stdout }}"
